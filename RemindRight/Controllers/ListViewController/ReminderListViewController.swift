@@ -13,8 +13,7 @@ class ReminderListViewController: UICollectionViewController {
 
     
     
-    typealias DataSource = UICollectionViewDiffableDataSource<Int, String>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, String>
+   
 
 
     var dataSource: DataSource!
@@ -35,14 +34,7 @@ class ReminderListViewController: UICollectionViewController {
         collectionView.collectionViewLayout = listLayout;
         
         //Cell registration specifies how to configure the content and appearance of a cell.
-        let cellRegistration = UICollectionView.CellRegistration {
-            (cell: UICollectionViewListCell, indexPath: IndexPath, itemIdentifier: String) in
-            let reminder = Reminder.sampleData[indexPath.item]
-            var contentConfiguration = cell.defaultContentConfiguration()
-            contentConfiguration.text = reminder.title
-            cell.contentConfiguration = contentConfiguration
-            
-        }
+        let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistrationHandler) //Calls the method from the extension vc, that have data source logic
         
         
         //In the initializer, you pass a closure that configures and returns a cell for a collection view.
