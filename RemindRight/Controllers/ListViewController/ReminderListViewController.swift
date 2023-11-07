@@ -11,12 +11,8 @@ private let reuseIdentifier = "Cell"
 
 class ReminderListViewController: UICollectionViewController {
 
-    
-    
-   
-
-
     var dataSource: DataSource!
+    var reminders: [Reminder] = Reminder.sampleData
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +21,7 @@ class ReminderListViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
         
@@ -40,20 +36,11 @@ class ReminderListViewController: UICollectionViewController {
         //In the initializer, you pass a closure that configures and returns a cell for a collection view.
         
         dataSource = DataSource(collectionView: collectionView) {
-            (collectionView: UICollectionView, indexPath: IndexPath, itemidentifier: String) in
+            (collectionView: UICollectionView, indexPath: IndexPath, itemidentifier: Reminder.ID) in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemidentifier)
         }
         
-        var snapshot = Snapshot();
-        snapshot.appendSections([0]);
-        var reminderTitles = [String]()
-        for reminder in Reminder.sampleData {
-            reminderTitles.append(reminder.title)
-        }
-        snapshot.appendItems(reminderTitles)
-        
-        //Apply the snapshot to the data source
-        dataSource.apply(snapshot);
+        updateSnapshot();
         
         //Apply the data source to the Collection View
         collectionView.dataSource = dataSource;
