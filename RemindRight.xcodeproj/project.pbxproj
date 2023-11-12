@@ -40,6 +40,7 @@
 		D7B8CA922AF4FBDE005C29D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7B8CA902AF4FBDE005C29D6 /* LaunchScreen.storyboard */; };
 		D7B8CA9E2AF51011005C29D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8CA9C2AF51011005C29D6 /* LoginViewController.swift */; };
 		D7B8CA9F2AF51011005C29D6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8CA9D2AF51011005C29D6 /* RegisterViewController.swift */; };
+		D7DCCAB52B00ED1C0031801A /* ReminderListViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DCCAB42B00ED1C0031801A /* ReminderListViewController+SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		D7B8CA932AF4FBDE005C29D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7B8CA9C2AF51011005C29D6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D7B8CA9D2AF51011005C29D6 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		D7DCCAB42B00ED1C0031801A /* ReminderListViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderListViewController+SearchBar.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				D73CDC4B2AF8E14000D5A8E4 /* ReminderListViewController.swift */,
+				D7DCCAB42B00ED1C0031801A /* ReminderListViewController+SearchBar.swift */,
 				D73CDC502AF9175400D5A8E4 /* ReminderListViewController+DataSource.swift */,
 				D73CDC522AFA1FE000D5A8E4 /* ReminderDoneButton.swift */,
 				D73CDC542AFA20BC00D5A8E4 /* ReminderListViewController+Actions.swift */,
@@ -280,6 +283,7 @@
 				D73CDC512AF9175400D5A8E4 /* ReminderListViewController+DataSource.swift in Sources */,
 				D7B862902AFEA9A1002BCEAB /* FirebaseService.swift in Sources */,
 				D7B8CA9F2AF51011005C29D6 /* RegisterViewController.swift in Sources */,
+				D7DCCAB52B00ED1C0031801A /* ReminderListViewController+SearchBar.swift in Sources */,
 				D73CDC652AFBDCF200D5A8E4 /* UIContentConfiguration+Stateless.swift in Sources */,
 				D73CDC5E2AFBB10F00D5A8E4 /* ReminderViewController+CellConfiguration.swift in Sources */,
 				D7B8CA8A2AF4FBDD005C29D6 /* WelcomeViewController.swift in Sources */,

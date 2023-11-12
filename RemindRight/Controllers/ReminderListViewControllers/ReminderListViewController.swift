@@ -9,23 +9,34 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import UserNotifications
+
 
 private let reuseIdentifier = "Cell"
 
 class ReminderListViewController: UICollectionViewController {
-
-   
+    
+    
     
     var dataSource: DataSource!
     var reminders: [Reminder] = []
     let db = Firestore.firestore();
     let firebaseService = FirebaseService();
     var userId: String = "user123"
-   
+    
+    var searchController: UISearchController!
+    var isSearching: Bool = false
+    var profileImageView: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Tasks"
+        
+        setupSearchController()
+        navigationItem.hidesSearchBarWhenScrolling = false;
+        
+        setupProfileImage();
         
         //Checking user signed-in using Firebase Auth
         guard let currentUser = Auth.auth().currentUser else {
@@ -33,6 +44,19 @@ class ReminderListViewController: UICollectionViewController {
             return}
         
         self.userId = currentUser.uid;
+        
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if granted {
+                // User granted permission
+                print("Notification permission granted")
+            } else {
+                // Handle denial or error
+                print("Notification permission denied or error: \(error?.localizedDescription ?? "Unknown error")")
+            }
+        }
+
+
         
         
         //Assigning our custom layout to collection View
@@ -48,6 +72,7 @@ class ReminderListViewController: UICollectionViewController {
             (collectionView: UICollectionView, indexPath: IndexPath, itemidentifier: Reminder.ID) in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemidentifier)
         }
+        
         
         
         //Apply the data source to the Collection View
@@ -108,5 +133,66 @@ class ReminderListViewController: UICollectionViewController {
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
+    
+    
+    
+    private func setupSearchController() {
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
+    private func setupProfileImage() {
+        let profileImage = UIImage(named: "profileImage")
+        let profileImageView = UIImageView(image: profileImage)
+        profileImageView.contentMode = .scaleAspectFit
+        profileImageView.clipsToBounds = true
 
+        // Set the size of the profile image as needed
+        let profileImageSize = CGSize(width: 30, height: 30)
+        profileImageView.frame = CGRect(origin: .zero, size: profileImageSize)
+
+        let profileButton = UIButton(type: .custom)
+        profileButton.addSubview(profileImageView)
+
+        // Add a tap gesture to handle the profile button press
+        profileButton.addTarget(self, action: #selector(didPressProfileButton(_:)), for: .touchUpInside)
+
+        // Set the custom view as the titleView of the navigation item
+        navigationItem.titleView = profileButton
+    }
+    
+    // ... Your existing methods ...
+    
+    @objc func didPressProfileButton(_ sender: Any) {
+        // Handle the profile button press, navigate to the profile view controller
+        //            let profileViewController = ProfileViewController()  // Replace with your profile view controller
+        //            navigationController?.pushViewController(profileViewController, animated: true)
+        
+        print("Navigated to profile")
+    }
+    
+    func scheduleNotification(for reminder: Reminder) {
+        let content = UNMutableNotificationContent()
+        content.title = "Reminder: \(reminder.title)"
+        content.body = "Don't forget to \(reminder.notes ?? "do something")!"
+        content.sound = UNNotificationSound.default
+
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: reminder.dueDate)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+
+        let request = UNNotificationRequest(identifier: reminder.id, content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Error scheduling notification: \(error.localizedDescription)")
+            } else {
+                print("Notification scheduled successfully!")
+            }
+        }
+    }
 }

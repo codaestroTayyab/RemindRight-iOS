@@ -14,6 +14,7 @@ struct Reminder: Equatable, Identifiable, Codable {
     var dueDate: Date
     var notes: String?
     var isComplete: Bool = false
+    var addedDate: Date = Date();
 }
 
 extension [Reminder] {

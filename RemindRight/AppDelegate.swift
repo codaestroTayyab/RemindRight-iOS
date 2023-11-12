@@ -9,14 +9,22 @@ import UIKit
 import FirebaseCore
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
-
+    func userNotificationCenter(
+           _ center: UNUserNotificationCenter,
+           didReceive response: UNNotificationResponse,
+           withCompletionHandler completionHandler: @escaping () -> Void
+       ) {
+           // Handle user's response to the notification (e.g., open the app or perform a specific action)
+           completionHandler()
+       }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure();
         
+        UNUserNotificationCenter.current().delegate = self
         UINavigationBar.appearance().tintColor = UIColor(named: "TodayPrimaryTint");
         UINavigationBar.appearance().backgroundColor = UIColor(named: "TodayNavigationBackground");
         let navBarAppearance = UINavigationBarAppearance()

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import SwipeCellKit
-
+import UserNotifications
 
 extension ReminderListViewController {
     typealias DataSource = UICollectionViewDiffableDataSource<Int, Reminder.ID>
@@ -18,19 +18,27 @@ extension ReminderListViewController {
     func updateSnapshot(reloading ids: [Reminder.ID] = []) {
         var snapshot = Snapshot()
         snapshot.appendSections([0])
-        snapshot.appendItems(reminders.map { $0.id })   // $0 means the item .map func is iterating
-        if !ids.isEmpty {
-            snapshot.reloadItems(ids);
+        
+        if isSearching {
+            // Filter reminders based on the search text
+            let filteredReminders = reminders.filter { $0.title.lowercased().contains(searchController.searchBar.text?.lowercased() ?? "") }
+            snapshot.appendItems(filteredReminders.map { $0.id })
+        } else {
+            snapshot.appendItems(reminders.map { $0.id })
         }
-        dataSource.apply(snapshot)   //Apply the snapshot to the data source
+        
+        if !ids.isEmpty {
+            snapshot.reloadItems(ids)
+        }
+        dataSource.apply(snapshot)
     }
     
     func fetchRemindersFromFirestore() {
         // Use Firebase authentication to get the current user's ID
-         // Replace with your authentication logic
+        // Replace with your authentication logic
         
         // Create a reference to the Firestore collection
-        let remindersCollection = db.collection("users").document(userId).collection("reminders")
+        let remindersCollection = db.collection("users").document(userId).collection("reminders").order(by: "addedDate", descending: true);
         
         // Add a snapshot listener to receive real-time updates
         remindersCollection.addSnapshotListener { [weak self] snapshot, error in
@@ -101,10 +109,14 @@ extension ReminderListViewController {
     }
     
     func addReminder(_ reminder: Reminder) {
+        scheduleNotification(for: reminder)
         saveReminder(reminder)
     }
     
     func updateReminder(_ reminder: Reminder) {
+//        updateScheduledNotification(for: reminder)
+        
+        scheduleNotification(for: reminder)
         saveReminder(reminder)
     }
     
@@ -131,14 +143,38 @@ extension ReminderListViewController {
     //    }
     
     func deleteReminder(withId id: Reminder.ID) {
-       
+        
         firebaseService.deleteReminder(withId: id, userId: userId) { error in
             if let error = error {
                 print("Error deleting reminder: \(error.localizedDescription)")
             } else {
+//                let reminderToDelete = self.reminder(withId: id)
+//                self.deleteScheduledNotification(for: reminderToDelete)
                 print("Reminder deleted successfully")
             }
         }
+    }
+    
+//    func deleteScheduledNotification(for reminder: Reminder) {
+//
+//        let notificationIds = [reminder.id] // Add logic to get notification identifiers for the reminder
+//
+//        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: notificationIds)
+//    }
+//
+//    func updateScheduledNotification(for reminder: Reminder) {
+//        // Remove existing notification
+//        deleteScheduledNotification(for: reminder)
+//
+//        // Add logic to reschedule the updated notification
+//        scheduleNotification(for: reminder)
+//    }
+
+
+    // Method to filter reminders based on search text
+    func filterRemindersAndReloadData(searchText: String) {
+        let filteredReminders = reminders.filter { $0.title.lowercased().contains(searchText.lowercased()) }
+        updateSnapshot(reloading: filteredReminders.map { $0.id })
     }
     
     private func doneButtonConfiguration(for reminder: Reminder) -> UICellAccessory.CustomViewConfiguration {
@@ -155,4 +191,7 @@ extension ReminderListViewController {
         
         return customCellConfiguration;
     }
+    
+   
+
 }
