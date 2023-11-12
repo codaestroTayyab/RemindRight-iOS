@@ -23,7 +23,7 @@ class RegisterViewController: UIViewController {
     
     @IBAction func registerPressed(_ sender: UIButton) {
         
-       let remindersViewController = storyboard?.instantiateViewController(withIdentifier: "ReminderListViewController") as! ReminderListViewController;
+       let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController;
         
         if let email = txtfEmail.text, let password = txtfPassword.text {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
@@ -31,14 +31,11 @@ class RegisterViewController: UIViewController {
                     print(e);
                 }
                 else{
-                    self.navigationController?.pushViewController(remindersViewController, animated: true)
+                    self.navigationController?.pushViewController(loginViewController, animated: true)
                 }
                 
             }
         }
-        
-        
-        
         
     }
     

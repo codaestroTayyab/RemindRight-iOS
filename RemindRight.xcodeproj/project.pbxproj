@@ -21,6 +21,17 @@
 		D73CDC512AF9175400D5A8E4 /* ReminderListViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73CDC502AF9175400D5A8E4 /* ReminderListViewController+DataSource.swift */; };
 		D73CDC532AFA1FE000D5A8E4 /* ReminderDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73CDC522AFA1FE000D5A8E4 /* ReminderDoneButton.swift */; };
 		D73CDC552AFA20BC00D5A8E4 /* ReminderListViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73CDC542AFA20BC00D5A8E4 /* ReminderListViewController+Actions.swift */; };
+		D73CDC572AFA32AE00D5A8E4 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73CDC562AFA32AE00D5A8E4 /* ReminderViewController.swift */; };
+		D73CDC5A2AFA354400D5A8E4 /* ReminderViewController+Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73CDC592AFA354400D5A8E4 /* ReminderViewController+Row.swift */; };
+		D73CDC5C2AFB8BA600D5A8E4 /* ReminderViewController+Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73CDC5B2AFB8BA600D5A8E4 /* ReminderViewController+Section.swift */; };
+		D73CDC5E2AFBB10F00D5A8E4 /* ReminderViewController+CellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73CDC5D2AFBB10F00D5A8E4 /* ReminderViewController+CellConfiguration.swift */; };
+		D73CDC612AFBD1CB00D5A8E4 /* UIView+PinnedSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73CDC602AFBD1CB00D5A8E4 /* UIView+PinnedSubView.swift */; };
+		D73CDC632AFBD75E00D5A8E4 /* TextFieldContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73CDC622AFBD75E00D5A8E4 /* TextFieldContentView.swift */; };
+		D73CDC652AFBDCF200D5A8E4 /* UIContentConfiguration+Stateless.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73CDC642AFBDCF200D5A8E4 /* UIContentConfiguration+Stateless.swift */; };
+		D73CDC672AFE0BF000D5A8E4 /* TextViewContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73CDC662AFE0BF000D5A8E4 /* TextViewContentView.swift */; };
+		D73CDC692AFE0D6F00D5A8E4 /* DatePickerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73CDC682AFE0D6F00D5A8E4 /* DatePickerContentView.swift */; };
+		D73CDC6C2AFE781200D5A8E4 /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = D73CDC6B2AFE781200D5A8E4 /* SwipeCellKit */; };
+		D7B862902AFEA9A1002BCEAB /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8628F2AFEA9A1002BCEAB /* FirebaseService.swift */; };
 		D7B8CA862AF4FBDD005C29D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8CA852AF4FBDD005C29D6 /* AppDelegate.swift */; };
 		D7B8CA882AF4FBDD005C29D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8CA872AF4FBDD005C29D6 /* SceneDelegate.swift */; };
 		D7B8CA8A2AF4FBDD005C29D6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8CA892AF4FBDD005C29D6 /* WelcomeViewController.swift */; };
@@ -39,6 +50,16 @@
 		D73CDC502AF9175400D5A8E4 /* ReminderListViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderListViewController+DataSource.swift"; sourceTree = "<group>"; };
 		D73CDC522AFA1FE000D5A8E4 /* ReminderDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDoneButton.swift; sourceTree = "<group>"; };
 		D73CDC542AFA20BC00D5A8E4 /* ReminderListViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderListViewController+Actions.swift"; sourceTree = "<group>"; };
+		D73CDC562AFA32AE00D5A8E4 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		D73CDC592AFA354400D5A8E4 /* ReminderViewController+Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderViewController+Row.swift"; sourceTree = "<group>"; };
+		D73CDC5B2AFB8BA600D5A8E4 /* ReminderViewController+Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderViewController+Section.swift"; sourceTree = "<group>"; };
+		D73CDC5D2AFBB10F00D5A8E4 /* ReminderViewController+CellConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderViewController+CellConfiguration.swift"; sourceTree = "<group>"; };
+		D73CDC602AFBD1CB00D5A8E4 /* UIView+PinnedSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+PinnedSubView.swift"; sourceTree = "<group>"; };
+		D73CDC622AFBD75E00D5A8E4 /* TextFieldContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldContentView.swift; sourceTree = "<group>"; };
+		D73CDC642AFBDCF200D5A8E4 /* UIContentConfiguration+Stateless.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIContentConfiguration+Stateless.swift"; sourceTree = "<group>"; };
+		D73CDC662AFE0BF000D5A8E4 /* TextViewContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewContentView.swift; sourceTree = "<group>"; };
+		D73CDC682AFE0D6F00D5A8E4 /* DatePickerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerContentView.swift; sourceTree = "<group>"; };
+		D7B8628F2AFEA9A1002BCEAB /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		D7B8CA822AF4FBDD005C29D6 /* RemindRight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemindRight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7B8CA852AF4FBDD005C29D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7B8CA872AF4FBDD005C29D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +81,7 @@
 				D73CDC3E2AF69D1900D5A8E4 /* FirebaseAuthCombine-Community in Frameworks */,
 				D73CDC442AF69D1900D5A8E4 /* FirebaseFunctions in Frameworks */,
 				D73CDC402AF69D1900D5A8E4 /* FirebaseFirestore in Frameworks */,
+				D73CDC6C2AFE781200D5A8E4 /* SwipeCellKit in Frameworks */,
 				D73CDC482AF69D1900D5A8E4 /* FirebaseStorage in Frameworks */,
 				D73CDC422AF69D1900D5A8E4 /* FirebaseFirestoreSwift in Frameworks */,
 				D73CDC462AF69D1900D5A8E4 /* FirebaseFunctionsCombine-Community in Frameworks */,
@@ -69,7 +91,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D73CDC4F2AF9171900D5A8E4 /* ListViewController */ = {
+		D73CDC4F2AF9171900D5A8E4 /* ReminderListViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				D73CDC4B2AF8E14000D5A8E4 /* ReminderListViewController.swift */,
@@ -77,7 +99,30 @@
 				D73CDC522AFA1FE000D5A8E4 /* ReminderDoneButton.swift */,
 				D73CDC542AFA20BC00D5A8E4 /* ReminderListViewController+Actions.swift */,
 			);
-			path = ListViewController;
+			path = ReminderListViewControllers;
+			sourceTree = "<group>";
+		};
+		D73CDC582AFA351500D5A8E4 /* DetailViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D73CDC562AFA32AE00D5A8E4 /* ReminderViewController.swift */,
+				D73CDC592AFA354400D5A8E4 /* ReminderViewController+Row.swift */,
+				D73CDC5B2AFB8BA600D5A8E4 /* ReminderViewController+Section.swift */,
+				D73CDC5D2AFBB10F00D5A8E4 /* ReminderViewController+CellConfiguration.swift */,
+			);
+			path = DetailViewControllers;
+			sourceTree = "<group>";
+		};
+		D73CDC5F2AFBD17900D5A8E4 /* ContentViews */ = {
+			isa = PBXGroup;
+			children = (
+				D73CDC602AFBD1CB00D5A8E4 /* UIView+PinnedSubView.swift */,
+				D73CDC622AFBD75E00D5A8E4 /* TextFieldContentView.swift */,
+				D73CDC642AFBDCF200D5A8E4 /* UIContentConfiguration+Stateless.swift */,
+				D73CDC662AFE0BF000D5A8E4 /* TextViewContentView.swift */,
+				D73CDC682AFE0D6F00D5A8E4 /* DatePickerContentView.swift */,
+			);
+			path = ContentViews;
 			sourceTree = "<group>";
 		};
 		D7B8CA792AF4FBDD005C29D6 = {
@@ -115,6 +160,7 @@
 		D7B8CA992AF50E10005C29D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D73CDC5F2AFBD17900D5A8E4 /* ContentViews */,
 				D7B8CA8B2AF4FBDD005C29D6 /* Main.storyboard */,
 			);
 			path = Views;
@@ -126,7 +172,8 @@
 				D7B8CA892AF4FBDD005C29D6 /* WelcomeViewController.swift */,
 				D7B8CA9C2AF51011005C29D6 /* LoginViewController.swift */,
 				D7B8CA9D2AF51011005C29D6 /* RegisterViewController.swift */,
-				D73CDC4F2AF9171900D5A8E4 /* ListViewController */,
+				D73CDC4F2AF9171900D5A8E4 /* ReminderListViewControllers */,
+				D73CDC582AFA351500D5A8E4 /* DetailViewControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -136,6 +183,7 @@
 			children = (
 				D73CDC492AF8DFD400D5A8E4 /* Reminder.swift */,
 				D73CDC4D2AF9151600D5A8E4 /* Date+Today.swift */,
+				D7B8628F2AFEA9A1002BCEAB /* FirebaseService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,6 +212,7 @@
 				D73CDC432AF69D1900D5A8E4 /* FirebaseFunctions */,
 				D73CDC452AF69D1900D5A8E4 /* FirebaseFunctionsCombine-Community */,
 				D73CDC472AF69D1900D5A8E4 /* FirebaseStorage */,
+				D73CDC6B2AFE781200D5A8E4 /* SwipeCellKit */,
 			);
 			productName = RemindRight;
 			productReference = D7B8CA822AF4FBDD005C29D6 /* RemindRight.app */;
@@ -195,6 +244,7 @@
 			mainGroup = D7B8CA792AF4FBDD005C29D6;
 			packageReferences = (
 				D73CDC3A2AF69D1900D5A8E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D73CDC6A2AFE781200D5A8E4 /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
 			);
 			productRefGroup = D7B8CA832AF4FBDD005C29D6 /* Products */;
 			projectDirPath = "";
@@ -224,14 +274,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D73CDC5C2AFB8BA600D5A8E4 /* ReminderViewController+Section.swift in Sources */,
 				D7B8CA9E2AF51011005C29D6 /* LoginViewController.swift in Sources */,
 				D73CDC4C2AF8E14000D5A8E4 /* ReminderListViewController.swift in Sources */,
 				D73CDC512AF9175400D5A8E4 /* ReminderListViewController+DataSource.swift in Sources */,
+				D7B862902AFEA9A1002BCEAB /* FirebaseService.swift in Sources */,
 				D7B8CA9F2AF51011005C29D6 /* RegisterViewController.swift in Sources */,
+				D73CDC652AFBDCF200D5A8E4 /* UIContentConfiguration+Stateless.swift in Sources */,
+				D73CDC5E2AFBB10F00D5A8E4 /* ReminderViewController+CellConfiguration.swift in Sources */,
 				D7B8CA8A2AF4FBDD005C29D6 /* WelcomeViewController.swift in Sources */,
 				D73CDC4A2AF8DFD400D5A8E4 /* Reminder.swift in Sources */,
+				D73CDC672AFE0BF000D5A8E4 /* TextViewContentView.swift in Sources */,
 				D73CDC4E2AF9151600D5A8E4 /* Date+Today.swift in Sources */,
 				D73CDC532AFA1FE000D5A8E4 /* ReminderDoneButton.swift in Sources */,
+				D73CDC632AFBD75E00D5A8E4 /* TextFieldContentView.swift in Sources */,
+				D73CDC572AFA32AE00D5A8E4 /* ReminderViewController.swift in Sources */,
+				D73CDC5A2AFA354400D5A8E4 /* ReminderViewController+Row.swift in Sources */,
+				D73CDC612AFBD1CB00D5A8E4 /* UIView+PinnedSubView.swift in Sources */,
+				D73CDC692AFE0D6F00D5A8E4 /* DatePickerContentView.swift in Sources */,
 				D73CDC552AFA20BC00D5A8E4 /* ReminderListViewController+Actions.swift in Sources */,
 				D7B8CA862AF4FBDD005C29D6 /* AppDelegate.swift in Sources */,
 				D7B8CA882AF4FBDD005C29D6 /* SceneDelegate.swift in Sources */,
@@ -460,6 +520,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		D73CDC6A2AFE781200D5A8E4 /* XCRemoteSwiftPackageReference "SwipeCellKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwipeCellKit/SwipeCellKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -497,6 +565,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D73CDC3A2AF69D1900D5A8E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		D73CDC6B2AFE781200D5A8E4 /* SwipeCellKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D73CDC6A2AFE781200D5A8E4 /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
+			productName = SwipeCellKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

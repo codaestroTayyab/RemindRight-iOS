@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure();
+        
+        UINavigationBar.appearance().tintColor = UIColor(named: "TodayPrimaryTint");
+        UINavigationBar.appearance().backgroundColor = UIColor(named: "TodayNavigationBackground");
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground();
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance;
+        
         return true
     }
 
