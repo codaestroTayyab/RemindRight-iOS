@@ -16,8 +16,11 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var txtfPassword: UITextField!
     
+    @IBOutlet weak var lblWarning: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad();
+        
+        lblWarning.isHidden = true;
     }
     
     
@@ -27,8 +30,10 @@ class LoginViewController: UIViewController {
         let remindersViewController = storyboard?.instantiateViewController(withIdentifier: "ReminderListViewController") as! ReminderListViewController;
 
         if let email = txtfEmail.text, let password = txtfPassword.text {
-            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            Auth.auth().signIn(withEmail: email, password: password) { [self] authResult, error in
                 if let e = error {
+                    self.lblWarning.isHidden = false;
+                    self.lblWarning.text = "Incorrect Password"
                     print(e);
                 }
                 else {

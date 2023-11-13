@@ -11,14 +11,11 @@ import FirebaseCore
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
-    func userNotificationCenter(
-           _ center: UNUserNotificationCenter,
-           didReceive response: UNNotificationResponse,
-           withCompletionHandler completionHandler: @escaping () -> Void
-       ) {
-           // Handle user's response to the notification (e.g., open the app or perform a specific action)
-           completionHandler()
-       }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // Handle the notification presentation when the app is in the foreground (e.g., show an alert)
+       
+        completionHandler([.alert, .sound, .badge])
+      }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

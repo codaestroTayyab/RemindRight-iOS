@@ -169,8 +169,8 @@ class ReminderListViewController: UICollectionViewController {
     
     @objc func didPressProfileButton(_ sender: Any) {
         // Handle the profile button press, navigate to the profile view controller
-        //            let profileViewController = ProfileViewController()  // Replace with your profile view controller
-        //            navigationController?.pushViewController(profileViewController, animated: true)
+        let profileViewController = storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController; // Replace with your profile view controller
+                    navigationController?.pushViewController(profileViewController, animated: true)
         
         print("Navigated to profile")
     }

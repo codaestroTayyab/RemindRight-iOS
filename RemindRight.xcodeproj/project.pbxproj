@@ -41,6 +41,8 @@
 		D7B8CA9E2AF51011005C29D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8CA9C2AF51011005C29D6 /* LoginViewController.swift */; };
 		D7B8CA9F2AF51011005C29D6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8CA9D2AF51011005C29D6 /* RegisterViewController.swift */; };
 		D7DCCAB52B00ED1C0031801A /* ReminderListViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DCCAB42B00ED1C0031801A /* ReminderListViewController+SearchBar.swift */; };
+		D7DCCAB72B0151590031801A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DCCAB62B0151590031801A /* ProfileViewController.swift */; };
+		D7DCCAB92B0153880031801A /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DCCAB82B0153880031801A /* ChangePasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		D7B8CA9C2AF51011005C29D6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D7B8CA9D2AF51011005C29D6 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D7DCCAB42B00ED1C0031801A /* ReminderListViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderListViewController+SearchBar.swift"; sourceTree = "<group>"; };
+		D7DCCAB62B0151590031801A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D7DCCAB82B0153880031801A /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +179,8 @@
 				D7B8CA892AF4FBDD005C29D6 /* WelcomeViewController.swift */,
 				D7B8CA9C2AF51011005C29D6 /* LoginViewController.swift */,
 				D7B8CA9D2AF51011005C29D6 /* RegisterViewController.swift */,
+				D7DCCAB62B0151590031801A /* ProfileViewController.swift */,
+				D7DCCAB82B0153880031801A /* ChangePasswordViewController.swift */,
 				D73CDC4F2AF9171900D5A8E4 /* ReminderListViewControllers */,
 				D73CDC582AFA351500D5A8E4 /* DetailViewControllers */,
 			);
@@ -292,8 +298,10 @@
 				D73CDC4E2AF9151600D5A8E4 /* Date+Today.swift in Sources */,
 				D73CDC532AFA1FE000D5A8E4 /* ReminderDoneButton.swift in Sources */,
 				D73CDC632AFBD75E00D5A8E4 /* TextFieldContentView.swift in Sources */,
+				D7DCCAB72B0151590031801A /* ProfileViewController.swift in Sources */,
 				D73CDC572AFA32AE00D5A8E4 /* ReminderViewController.swift in Sources */,
 				D73CDC5A2AFA354400D5A8E4 /* ReminderViewController+Row.swift in Sources */,
+				D7DCCAB92B0153880031801A /* ChangePasswordViewController.swift in Sources */,
 				D73CDC612AFBD1CB00D5A8E4 /* UIView+PinnedSubView.swift in Sources */,
 				D73CDC692AFE0D6F00D5A8E4 /* DatePickerContentView.swift in Sources */,
 				D73CDC552AFA20BC00D5A8E4 /* ReminderListViewController+Actions.swift in Sources */,
