@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 extension ReminderListViewController {
-    @objc func didPressDoneButton(_ sender: ReminderDoneButton) {
-        guard let id = sender.id else {
-            return }
-        completeReminder(withId: id);
-    }
+//    @objc func didPressDoneButton(_ sender: ReminderDoneButton) {
+//        guard let id = sender.id else {
+//            return }
+//        completeReminder(withId: id);
+//    }
     
     @objc func didPressAddButton(_ sender: UIBarButtonItem) {
         let reminder = Reminder(title: "", dueDate: Date.now)

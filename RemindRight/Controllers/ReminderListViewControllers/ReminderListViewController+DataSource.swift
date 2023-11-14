@@ -63,6 +63,7 @@ extension ReminderListViewController {
                     return nil
                 }
             }
+            print("Reminders array from FRFF: \(self.reminders.description)")
             
             // Update the snapshot with the fetched data
             self.updateSnapshot()
@@ -78,12 +79,11 @@ extension ReminderListViewController {
             forTextStyle: .caption1)
         cell.contentConfiguration = contentConfiguration
         //Done Button Configuration Intialization
-        var doneButtonConfiguration = doneButtonConfiguration(for: reminder)
-        doneButtonConfiguration.tintColor = UIColor(named: "TodayListCellDoneButtonTint")
+//        var doneButtonConfiguration = doneButtonConfiguration(for: reminder)
+//        doneButtonConfiguration.tintColor = UIColor(named: "TodayListCellDoneButtonTint")
         
         //Assigning to cell accessories
-        cell.accessories = [ .customView(configuration: doneButtonConfiguration), .disclosureIndicator(displayed: .always)
-        ]
+        cell.accessories = [ .disclosureIndicator(displayed: .always) ]
         
         
         //Setting Background Color for grouped cell
@@ -126,12 +126,12 @@ extension ReminderListViewController {
     //        reminders[index] = reminder
     //    }
     
-    func completeReminder(withId id: Reminder.ID) {
-        var reminder = reminder(withId: id)
-        reminder.isComplete.toggle();
-        updateReminder(reminder);
-        updateSnapshot(reloading: [id]);
-    }
+//    func completeReminder(withId id: Reminder.ID) {
+//        var reminder = reminder(withId: id)
+//        reminder.isComplete.toggle();
+//        updateReminder(reminder);
+//        updateSnapshot(reloading: [id]);
+//    }
     
     //    func addReminder(_ reminder: Reminder) {
     //        reminders.append(reminder);
@@ -144,23 +144,26 @@ extension ReminderListViewController {
     
     func deleteReminder(withId id: Reminder.ID) {
         
+        let reminderToDelete = self.reminder(withId: id)
+        print("Reminder to delete: \(reminderToDelete)")
+        self.deleteScheduledNotification(for: reminderToDelete)
         firebaseService.deleteReminder(withId: id, userId: userId) { error in
             if let error = error {
                 print("Error deleting reminder: \(error.localizedDescription)")
             } else {
-//                let reminderToDelete = self.reminder(withId: id)
-//                self.deleteScheduledNotification(for: reminderToDelete)
-                print("Reminder deleted successfully")
+                DispatchQueue.main.async {
+                    print("Reminder deleted successfully")
+                }
             }
         }
     }
     
-//    func deleteScheduledNotification(for reminder: Reminder) {
-//
-//        let notificationIds = [reminder.id] // Add logic to get notification identifiers for the reminder
-//
-//        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: notificationIds)
-//    }
+    func deleteScheduledNotification(for reminder: Reminder) {
+
+        let notificationIds = [reminder.id] // Add logic to get notification identifiers for the reminder
+        print("Notification Id from DSN: \(notificationIds)")
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: notificationIds)
+    }
 //
 //    func updateScheduledNotification(for reminder: Reminder) {
 //        // Remove existing notification
@@ -177,21 +180,23 @@ extension ReminderListViewController {
         updateSnapshot(reloading: filteredReminders.map { $0.id })
     }
     
-    private func doneButtonConfiguration(for reminder: Reminder) -> UICellAccessory.CustomViewConfiguration {
-        let symbolName = reminder.isComplete ? "app.fill" : "app"
-        let symbolConfiguration = UIImage.SymbolConfiguration(textStyle: .title1)
-        let image = UIImage(systemName: symbolName, withConfiguration: symbolConfiguration)
-        
-        let button = ReminderDoneButton();
-        button.addTarget(self, action: #selector(didPressDoneButton(_:)), for: .touchUpInside)
-        button.id = reminder.id;
-        button.setImage(image, for: .normal)
-        
-        let customCellConfiguration = UICellAccessory.CustomViewConfiguration(customView: button, placement: .leading(displayed: .always))
-        
-        return customCellConfiguration;
-    }
     
+//
+//    private func doneButtonConfiguration(for reminder: Reminder) -> UICellAccessory.CustomViewConfiguration {
+//        let symbolName = reminder.isComplete ? "app.fill" : "app"
+//        let symbolConfiguration = UIImage.SymbolConfiguration(textStyle: .title1)
+//        let image = UIImage(systemName: symbolName, withConfiguration: symbolConfiguration)
+//
+//        let button = ReminderDoneButton();
+//        button.addTarget(self, action: #selector(didPressDoneButton(_:)), for: .touchUpInside)
+//        button.id = reminder.id;
+//        button.setImage(image, for: .normal)
+//
+//        let customCellConfiguration = UICellAccessory.CustomViewConfiguration(customView: button, placement: .leading(displayed: .always))
+//
+//        return customCellConfiguration;
+//    }
+//
    
 
 }

@@ -89,8 +89,11 @@ class ReminderListViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("Reminder array at view will appear: \(reminders)")
         DispatchQueue.main.async {
-            self.updateSnapshot()
+            self.reminders.forEach {
+                self.updateSnapshot(reloading: [$0.id])
+            }
         }
     }
     
@@ -104,6 +107,7 @@ class ReminderListViewController: UICollectionViewController {
         let reminder = reminder(withId: id);
         let detailViewController = ReminderViewController(reminder: reminder) { [weak self] reminder in
             self?.updateReminder(reminder);
+            print("Reminder from detail VC: \(reminder)")
             self?.updateSnapshot(reloading: [reminder.id]);
         }
         navigationController?.pushViewController(detailViewController, animated: true);
@@ -195,4 +199,11 @@ class ReminderListViewController: UICollectionViewController {
             }
         }
     }
+    
+//    func scheduleNotification(for reminder: Reminder, with documentID: String) {
+//        // Use the document ID to create a unique notification identifier
+//        let notificationID = "ReminderNotification_\(documentID)"
+//
+//        // Rest of the notification scheduling logic...
+//    }
 }
