@@ -288,7 +288,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="lEp-7B-WLP">
-                                        <rect key="frame" x="30" y="343" width="313" height="190.66666666666663"/>
+                                        <rect key="frame" x="30" y="343" width="313" height="199"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ecx-ev-WjT">
                                                 <rect key="frame" x="0.0" y="0.0" width="313" height="34"/>
@@ -307,27 +307,33 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8G-XE-CAc">
-                                                <rect key="frame" x="0.0" y="110" width="313" height="14.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="110" width="313" height="22.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhS-Kt-5wy">
-                                                <rect key="frame" x="0.0" y="145.33333333333337" width="313" height="45.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="153.66666666666663" width="313" height="45.333333333333343"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="313" id="1jJ-ZK-8nm"/>
+                                                    <constraint firstAttribute="height" constant="45.329999999999998" id="srV-nQ-qKX"/>
+                                                </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Save"/>
                                                 <connections>
-                                                    <action selector="saveNameButton:" destination="9TB-g9-rhO" eventType="touchUpInside" id="vjc-rf-9Zn"/>
+                                                    <action selector="btnSavePressed:" destination="9TB-g9-rhO" eventType="touchUpInside" id="RYd-OR-acj"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="313" id="86h-pT-Lup"/>
                                             <constraint firstItem="zhS-Kt-5wy" firstAttribute="top" secondItem="P8G-XE-CAc" secondAttribute="bottom" constant="21" id="Y1D-kH-BrO"/>
+                                            <constraint firstAttribute="height" constant="199" id="arK-9O-pzh"/>
                                             <constraint firstItem="P8G-XE-CAc" firstAttribute="top" secondItem="Dzl-IA-MIN" secondAttribute="bottom" constant="21" id="wKv-PV-4jB"/>
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Wf-UD-b46">
-                                        <rect key="frame" x="106" y="654.66666666666663" width="161" height="64.333333333333371"/>
+                                        <rect key="frame" x="106" y="663" width="161" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160.66999999999999" id="CVd-uv-EcD"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="e2U-QY-AHg"/>

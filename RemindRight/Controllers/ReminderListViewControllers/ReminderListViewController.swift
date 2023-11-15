@@ -10,7 +10,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 import UserNotifications
-
+import SDWebImage
 
 private let reuseIdentifier = "Cell"
 
@@ -149,15 +149,16 @@ class ReminderListViewController: UICollectionViewController {
         definesPresentationContext = true
     }
     
-    private func setupProfileImage() {
-        let profileImage = UIImage(named: "profileImage")
-        let profileImageView = UIImageView(image: profileImage)
-        profileImageView.contentMode = .scaleAspectFit
-        profileImageView.clipsToBounds = true
 
-        // Set the size of the profile image as needed
+    private func setupProfileImage() {
+        let profileImageView = UIImageView()
+        profileImageView.contentMode = .scaleAspectFill
+        profileImageView.clipsToBounds = true
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+
         let profileImageSize = CGSize(width: 30, height: 30)
         profileImageView.frame = CGRect(origin: .zero, size: profileImageSize)
+        
 
         let profileButton = UIButton(type: .custom)
         profileButton.addSubview(profileImageView)
@@ -165,11 +166,25 @@ class ReminderListViewController: UICollectionViewController {
         // Add a tap gesture to handle the profile button press
         profileButton.addTarget(self, action: #selector(didPressProfileButton(_:)), for: .touchUpInside)
 
+        // Load and display user's profile image from Firebase Storage using SDWebImage
+        if let user = Auth.auth().currentUser {
+            if let photoURL = user.photoURL {
+                profileImageView.sd_setImage(with: photoURL, placeholderImage: UIImage(named: "defaultProfileImage")) { (image, error, cacheType, url) in
+                    if let error = error {
+                        print("Error loading profile image: \(error.localizedDescription)")
+                    } else {
+                        print("User profile image updated from setupProfileImage")
+                    }
+                }
+            } else {
+                // User does not have a profile image, display default profile picture
+                profileImageView.image = UIImage(named: "defaultProfileImage")
+            }
+        }
+
         // Set the custom view as the titleView of the navigation item
         navigationItem.titleView = profileButton
     }
-    
-    // ... Your existing methods ...
     
     @objc func didPressProfileButton(_ sender: Any) {
         // Handle the profile button press, navigate to the profile view controller

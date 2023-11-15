@@ -43,6 +43,8 @@
 		D7DCCAB52B00ED1C0031801A /* ReminderListViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DCCAB42B00ED1C0031801A /* ReminderListViewController+SearchBar.swift */; };
 		D7DCCAB72B0151590031801A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DCCAB62B0151590031801A /* ProfileViewController.swift */; };
 		D7DCCAB92B0153880031801A /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DCCAB82B0153880031801A /* ChangePasswordViewController.swift */; };
+		D7F9DA9C2B04E09A0009D4D3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = D7F9DA9B2B04E09A0009D4D3 /* SDWebImage */; };
+		D7F9DA9E2B04E09A0009D4D3 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D7F9DA9D2B04E09A0009D4D3 /* SDWebImageMapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,8 @@
 				D73CDC402AF69D1900D5A8E4 /* FirebaseFirestore in Frameworks */,
 				D73CDC6C2AFE781200D5A8E4 /* SwipeCellKit in Frameworks */,
 				D73CDC482AF69D1900D5A8E4 /* FirebaseStorage in Frameworks */,
+				D7F9DA9E2B04E09A0009D4D3 /* SDWebImageMapKit in Frameworks */,
+				D7F9DA9C2B04E09A0009D4D3 /* SDWebImage in Frameworks */,
 				D73CDC422AF69D1900D5A8E4 /* FirebaseFirestoreSwift in Frameworks */,
 				D73CDC462AF69D1900D5A8E4 /* FirebaseFunctionsCombine-Community in Frameworks */,
 			);
@@ -179,8 +183,8 @@
 				D7B8CA892AF4FBDD005C29D6 /* WelcomeViewController.swift */,
 				D7B8CA9C2AF51011005C29D6 /* LoginViewController.swift */,
 				D7B8CA9D2AF51011005C29D6 /* RegisterViewController.swift */,
-				D7DCCAB62B0151590031801A /* ProfileViewController.swift */,
 				D7DCCAB82B0153880031801A /* ChangePasswordViewController.swift */,
+				D7DCCAB62B0151590031801A /* ProfileViewController.swift */,
 				D73CDC4F2AF9171900D5A8E4 /* ReminderListViewControllers */,
 				D73CDC582AFA351500D5A8E4 /* DetailViewControllers */,
 			);
@@ -222,6 +226,8 @@
 				D73CDC452AF69D1900D5A8E4 /* FirebaseFunctionsCombine-Community */,
 				D73CDC472AF69D1900D5A8E4 /* FirebaseStorage */,
 				D73CDC6B2AFE781200D5A8E4 /* SwipeCellKit */,
+				D7F9DA9B2B04E09A0009D4D3 /* SDWebImage */,
+				D7F9DA9D2B04E09A0009D4D3 /* SDWebImageMapKit */,
 			);
 			productName = RemindRight;
 			productReference = D7B8CA822AF4FBDD005C29D6 /* RemindRight.app */;
@@ -254,6 +260,7 @@
 			packageReferences = (
 				D73CDC3A2AF69D1900D5A8E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				D73CDC6A2AFE781200D5A8E4 /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
+				D7F9DA9A2B04E09A0009D4D3 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = D7B8CA832AF4FBDD005C29D6 /* Products */;
 			projectDirPath = "";
@@ -540,6 +547,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		D7F9DA9A2B04E09A0009D4D3 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -582,6 +597,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D73CDC6A2AFE781200D5A8E4 /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
 			productName = SwipeCellKit;
+		};
+		D7F9DA9B2B04E09A0009D4D3 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D7F9DA9A2B04E09A0009D4D3 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		D7F9DA9D2B04E09A0009D4D3 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D7F9DA9A2B04E09A0009D4D3 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
