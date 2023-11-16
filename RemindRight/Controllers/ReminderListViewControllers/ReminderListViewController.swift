@@ -31,31 +31,16 @@ class ReminderListViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Tasks"
         
+        checkLoginState();
+
         setupSearchController()
-        navigationItem.hidesSearchBarWhenScrolling = false;
         
         setupProfileImage();
         
-        //Checking user signed-in using Firebase Auth
-        guard let currentUser = Auth.auth().currentUser else {
-            print("No user signed in")
-            return}
+        assignUserId();
         
-        self.userId = currentUser.uid;
-        
-        
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            if granted {
-                // User granted permission
-                print("Notification permission granted")
-            } else {
-                // Handle denial or error
-                print("Notification permission denied or error: \(error?.localizedDescription ?? "Unknown error")")
-            }
-        }
-
+        getNotificationPermission();
 
         
         
@@ -90,6 +75,7 @@ class ReminderListViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("Reminder array at view will appear: \(reminders)")
+        setupProfileImage()
         DispatchQueue.main.async {
             self.reminders.forEach {
                 self.updateSnapshot(reloading: [$0.id])
@@ -111,6 +97,38 @@ class ReminderListViewController: UICollectionViewController {
             self?.updateSnapshot(reloading: [reminder.id]);
         }
         navigationController?.pushViewController(detailViewController, animated: true);
+    }
+    
+    func getNotificationPermission() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if granted {
+                // User granted permission
+                print("Notification permission granted")
+            } else {
+                // Handle denial or error
+                print("Notification permission denied or error: \(error?.localizedDescription ?? "Unknown error")")
+            }
+        }
+    }
+    
+    func assignUserId () {
+        //Checking user signed-in using Firebase Auth
+        guard let currentUser = Auth.auth().currentUser else {
+            print("No user signed in")
+            return}
+        
+        self.userId = currentUser.uid;
+    }
+    
+    
+    func checkLoginState() {
+        // Add the auth state change listener
+               Auth.auth().addStateDidChangeListener { [weak self] (_, user) in
+                   if user == nil {
+                       // User is not signed in, navigate back to the welcome screen
+                       self?.navigateToWelcomeScreen()
+                   }
+               }
     }
     
     //Creates a new list configuration variable with the grouped appearance.
@@ -147,18 +165,25 @@ class ReminderListViewController: UICollectionViewController {
         
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        navigationItem.hidesSearchBarWhenScrolling = false;
     }
     
+    private func navigateToWelcomeScreen() {
+            let welcomeViewController = storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+        
+            navigationController?.setViewControllers([welcomeViewController], animated: true)
+        }
 
     private func setupProfileImage() {
         let profileImageView = UIImageView()
         profileImageView.contentMode = .scaleAspectFill
-        profileImageView.clipsToBounds = true
-        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
-
+       
+        
         let profileImageSize = CGSize(width: 30, height: 30)
         profileImageView.frame = CGRect(origin: .zero, size: profileImageSize)
         
+        profileImageView.layer.cornerRadius = profileImageSize.width / 2
+        profileImageView.clipsToBounds = true
 
         let profileButton = UIButton(type: .custom)
         profileButton.addSubview(profileImageView)

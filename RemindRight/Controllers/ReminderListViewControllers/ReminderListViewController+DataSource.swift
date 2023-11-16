@@ -78,9 +78,7 @@ extension ReminderListViewController {
         contentConfiguration.secondaryTextProperties.font = UIFont.preferredFont(
             forTextStyle: .caption1)
         cell.contentConfiguration = contentConfiguration
-        //Done Button Configuration Intialization
-//        var doneButtonConfiguration = doneButtonConfiguration(for: reminder)
-//        doneButtonConfiguration.tintColor = UIColor(named: "TodayListCellDoneButtonTint")
+
         
         //Assigning to cell accessories
         cell.accessories = [ .disclosureIndicator(displayed: .always) ]
